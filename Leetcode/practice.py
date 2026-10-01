@@ -28,3 +28,30 @@ result = solution.isPalindrome(s)
 
 # Print result
 print("Is Palindrome:", result)
+
+
+
+def mincoin(coin,amount):
+    n = len(coin)
+    coin.sort()
+    res = 0
+    
+    for i in range(len(coin)-1,-1,-1):
+        if amount >= coin[i]:
+            
+            cnt = amount // coin[i]
+            
+            res += cnt
+            
+            amount -= cnt * coin[i]
+        
+        if amount == 0:
+            break
+    return res 
+
+if __name__ == "__main__":
+    coin = [5, 2, 10, 1]
+    amount = 40
+
+    print(mincoin(coin, amount))
+            
